@@ -1,40 +1,75 @@
+// 立即執行：在頁面內容加載前恢復語言偏好（避免閃爍）
+(function() {
+    const savedLanguage = localStorage.getItem('preferredLanguage');
+    if (savedLanguage) {
+        document.documentElement.setAttribute('data-lang', savedLanguage);
+    }
+})();
+
+// 切換語言函數
+function switchLanguage(selectedLang) {
+    // 保存語言選擇到 localStorage
+    localStorage.setItem('preferredLanguage', selectedLang);
+    
+    // 設定 html 標籤的 data-lang 屬性
+    document.documentElement.setAttribute('data-lang', selectedLang);
+    
+    // 取得所有需要切換語言的元素
+    const translatableElements = document.querySelectorAll('[data-zh][data-en]');
+    
+    // 遍歷所有有 data-zh 和 data-en 的元素
+    translatableElements.forEach(element => {
+        // 只處理 input 和 textarea 元素的 placeholder
+        if (element.tagName.toLowerCase() === 'input' || element.tagName.toLowerCase() === 'textarea') {
+            if (selectedLang === '中') {
+                element.placeholder = element.getAttribute('data-zh'); // 切換為中文
+                element.classList.remove('en-font-size'); // 移除英文樣式
+            } else if (selectedLang === 'En') {
+                element.placeholder = element.getAttribute('data-en'); // 切換為英文
+                element.classList.add('en-font-size'); // 添加英文樣式
+            }
+        } else {
+            // 更新其他元素的文本內容（例如 <label> 和 <span>）
+            if (selectedLang === '中') {
+                element.textContent = element.getAttribute('data-zh'); // 切換為中文
+                element.classList.remove('en-font-size'); // 移除英文樣式
+            } else if (selectedLang === 'En') {
+                element.textContent = element.getAttribute('data-en'); // 切換為英文
+                element.classList.add('en-font-size'); // 添加英文樣式
+            }
+        }
+    });
+    
+    // 更新語言按鈕的 active 狀態
+    const langButtons = document.querySelectorAll('.btn-lan');
+    langButtons.forEach(button => {
+        if (button.innerText.trim() === selectedLang) {
+            button.classList.add('active');
+        } else {
+            button.classList.remove('active');
+        }
+    });
+}
+
 // 取得所有語言按鈕
 const langButtons = document.querySelectorAll('.btn-lan');
-
-// 取得所有需要切換語言的元素
-const translatableElements = document.querySelectorAll('[data-zh][data-en]');
 
 // 為每個按鈕添加點擊事件
 langButtons.forEach(button => {
     button.addEventListener('click', () => {
         const selectedLang = button.innerText.trim(); // 根據按鈕文字判斷語言
-
-        // 遍歷所有有 data-zh 和 data-en 的元素
-        translatableElements.forEach(element => {
-            // 只處理 input 和 textarea 元素的 placeholder
-            if (element.tagName.toLowerCase() === 'input' || element.tagName.toLowerCase() === 'textarea') {
-                if (selectedLang === '中') {
-                    element.placeholder = element.getAttribute('data-zh'); // 切換為中文
-                    element.classList.remove('en-font-size'); // 移除英文樣式
-                } else if (selectedLang === 'En') {
-                    element.placeholder = element.getAttribute('data-en'); // 切換為英文
-                    element.classList.add('en-font-size'); // 添加英文樣式
-                }
-            } else {
-                // 更新其他元素的文本內容（例如 <label> 和 <span>）
-                if (selectedLang === '中') {
-                    element.textContent = element.getAttribute('data-zh'); // 切換為中文
-                    element.classList.remove('en-font-size'); // 移除英文樣式
-                } else if (selectedLang === 'En') {
-                    element.textContent = element.getAttribute('data-en'); // 切換為英文
-                    element.classList.add('en-font-size'); // 添加英文樣式
-                }
-            }
-        });
+        switchLanguage(selectedLang);
     });
 });
 
-document.addEventListener("DOMContentLoaded", function() {
+// 頁面載入時恢復用戶的語言偏好
+document.addEventListener('DOMContentLoaded', function() {
+    // 如果已有保存的語言，立即應用（避免多次執行）
+    const savedLanguage = localStorage.getItem('preferredLanguage');
+    if (savedLanguage) {
+        switchLanguage(savedLanguage);
+    }
+
     // 當用户按下 Enter 鍵時觸發搜索
     document.getElementById("search-input").addEventListener("keydown", function(event) {
         if (event.key === "Enter") {
