@@ -112,8 +112,9 @@ body{
 
 .word_book{
     width: 537px;
-    height: 183px;
-    margin-top: 95px;
+    height: auto;
+    /* height: 183px; */
+    margin-top: 80px;
     margin-left: 178px;
 }
 
@@ -131,7 +132,8 @@ body{
 
 .intro_book{
     width: 537px;
-    height: 110px;
+    height: auto;
+    /* height: 110px; */
     color: white;
     margin-top: 32px;
     margin-bottom: 0;
@@ -158,14 +160,16 @@ body{
 
 .word_video{
     width: 451px;
-    height: 117px;
+    /* height: 117px; */
+    height: auto;
     margin-top: 74px;
     margin-left: 113px;
 }
 
 .intro_video{
     width: 451px;
-    height: 44px;
+    /* height: 44px; */
+    height: auto;
     margin-top: 28px;
     margin-bottom: 0;
 }
@@ -192,7 +196,8 @@ body{
 }
 
 .word_mem {
-    width: 537px;
+    width: auto;
+    /* width: 537px; */
     height: 218px;
     margin-top: 66px;
     margin-left: 139px;
@@ -224,7 +229,8 @@ body{
 }
 
 .intro_mem {
-    width: 537px;
+    width: auto;
+    /* width: 537px; */
     height: 110px;
     margin-top: 27px;
     margin-bottom: 0;

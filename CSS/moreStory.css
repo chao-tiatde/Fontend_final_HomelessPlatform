@@ -1,5 +1,6 @@
 html{
     background-color: #FFFFFF; 
+    line-height: 1.6;
     box-sizing: border-box;
     margin: 0;
     padding: 0;
@@ -60,6 +61,7 @@ i a{
 @media screen and (min-width: 1220px){
     .main_contain{
         width: 1178px;
+        height: auto;
         /* min-height: 1958px; */
         min-height: 2094px;
         margin: 120px auto 93px auto;
@@ -69,9 +71,10 @@ i a{
 
     .area_main{
         width: 1178px;
-        min-height: 1905px;
-        /* min-height: 2016px; */
-        /* display: inline-block; */
+        height: auto;
+        /* min-height: 1950px; */
+        min-height: 2016px;
+        display: inline-block;
         background-color: #B9C1D2;
         border-radius:0 20px 20px 20px;
         align-items: flex-start;
@@ -157,10 +160,10 @@ i a{
     
     .line{
         width: 1px;
-        height: 1801px;
+        height: 1846px;
         background-color: #354567;
         border: none;
-        margin: 59px 0 61px 51px;
+        margin: 59px 0 auto 51px;
     }
     
     .line2{
@@ -173,7 +176,7 @@ i a{
     
     .area_intro{
         width: 697px;
-        height: 1785px;
+        display: inline-block;
         position: relative;
         top: 60px;
         left: 136px;
@@ -188,7 +191,8 @@ i a{
 
     .intro1{
         width: 697px;
-        height: 438px;
+        /* height: 438px; */
+        display: inline-block;
     }
     
     .intro2{
@@ -376,8 +380,9 @@ i a{
 @media screen and (min-width: 768px) and (max-width: 1023px){
     .main_contain{
         width: 600px;
-        max-height: 1553px !important;
-        /* min-height: 1958px; */
+        height: auto;
+        min-height: 1514px !important;
+        max-height: 1655px !important;
         margin: 120px auto 60px auto;
         color: #354567;
         position: relative;
@@ -385,9 +390,9 @@ i a{
 
     .area_main{
         width: 600px;
-        height: 1400px !important;
-        /* min-height: 2016px; */
-        /* display: inline-block; */
+        max-height: 1610px;
+        min-height: 1461px !important;
+        height: auto;
         background-color: #B9C1D2;
         border-radius:0 20px 20px 20px;
         align-items: flex-start;
@@ -397,7 +402,7 @@ i a{
     
     .area_main2{
         width: 600px;
-        min-height: 1500px !important;
+        min-height: 1600px !important;
         background-color: #354567;
         color: #FFFFFF;
         border-radius:0 20px 20px 20px;
@@ -406,7 +411,8 @@ i a{
     }
     
     .area_main, .area_main2 {
-        display: flex;
+        /* display: flex; */
+        display: inline-block;
         visibility: hidden;
         opacity: 0;
         transition: opacity 0.5s ease;
@@ -434,7 +440,7 @@ i a{
     
     .area_intro{
         width: 497px;
-        height: 1272px;
+        display: inline-block;
         position: relative;
         margin-left: 51px;
         margin-right: 51px;
@@ -449,7 +455,8 @@ i a{
 
     .intro1{
         width: 497px;
-        height: 312px;
+        /* height: 312px; */
+        display: inline-block;
         margin-top: 45px;
     }
     
@@ -511,12 +518,11 @@ i a{
 
     .main_contain{
         width: 450px;
-        min-height: 1340px !important;
+        max-height: 1340px !important;
         /* max-height: 1380px !important; */
         /* min-height: 1958px; */
         margin: 120px auto 20px auto;
         color: #354567;
-        
         gap: 0;
         display: flex;
         align-items: flex-start;
@@ -695,9 +701,9 @@ i a{
 
     .main_contain{
         width: 320px;
-        min-height: 1280px !important;
+        max-height: 1120px !important;
         /* min-height: 1958px; */
-        margin: 120px auto 20px auto;
+        margin: 120px auto 30px auto;
         color: #354567;
         
         gap: 0;
@@ -924,9 +930,6 @@ i a{
     opacity: 1;
 }
 
-
-
-
 .area_tit{    
     width: auto;
     /* height: 24px; */
@@ -948,6 +951,7 @@ i a{
 }
 
 .intro_name{
+    width: auto;
     font-size: 14px;
     line-height: 14px;
     margin-top: 10px;
@@ -1018,5 +1022,6 @@ i a{
 
 #send2_tit{
     height: auto;
+    width: auto;
     display: inline-block;
 }

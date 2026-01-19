@@ -223,8 +223,8 @@ function scrollToTop() {
 
 
 // Get language buttons and elements
-const zhButton = document.querySelector('.btn-lan:nth-child(1)');
-const enButton = document.querySelector('.btn-lan:nth-child(2)');
+const zhButton = document.querySelector('.btn-ch');
+const enButton = document.querySelector('.btn-en');
 const areaMain = document.querySelector('.area_main');
 const line = document.querySelector('.line');
 const MainContain = document.querySelector('.main_contain');
@@ -233,20 +233,20 @@ const MainContain = document.querySelector('.main_contain');
 // Function to adjust styles based on language
 function adjustStyles(language) {
     // Remove any existing inserted div
-    const existingDiv = document.querySelector('.inserted-div');
+    // const existingDiv = document.querySelector('.inserted-div');
     if (existingDiv) {
         existingDiv.remove();
     }
 
-    if (language === 'en') {
+    if (language == 'en') {
         // Increase height for English content
-        areaMain.style.height = '1974px'; // Adjust this value as needed
-        line.style.height = '1902px';     // Adjust this value as needed
-        MainContain.style.height = '2027px';
+        areaMain.style.height = '1992px'; // Adjust this value as needed
+        line.style.height = '1915px';     // Adjust this value as needed
+        MainContain.style.height = '2045px';
 
         // Create and insert a new div
         const newDiv = document.createElement('div');
-        newDiv.classList.add('inserted-div');
+        // newDiv.classList.add('inserted-div');
         newDiv.style.height = '100px'; // Adjust this value as needed
         newDiv.style.backgroundColor = '#f0f0f0'; // Adjust this value as needed
         areaMain.appendChild(newDiv);
